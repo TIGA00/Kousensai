@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Stage
+  - Player1Shot
+  - Player2Shot
+  - Player3Shot
+  - Player4Shot
+  - bunkasai_player(1)
+  - bunkasai_player(2)
+  - HitPoint2
+  - bunkasai_player(3)
+  - bunkasai_player
+  - HitPoint1
+  - HitPoint3
+  - HitPoint4
+  - MainCamera1
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - PostProcessing
+  - Player1
+  - Player2
+  - Player3
+  - Player4
+  - Player1Shot
+  - Player2Shot
+  - Player3Shot
+  - Player4Shot
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: black
+    uniqueID: 2108039721
+    locked: 0
