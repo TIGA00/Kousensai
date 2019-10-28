@@ -38,7 +38,8 @@ public class PlayerMove1 : MonoBehaviour {
 		if (chCon.isGrounded||isGround) {
 			if (inSta.B == true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {
+			//} else if (inSta.X) {
+			} else if (Input.GetKeyDown(KeyCode.S)){
 				moveDir = new Vector3 (0, 0, -1);
 			} else if (inSta.X == false && inSta.B == false) {
 				moveDir = new Vector3 (0, 0, 0);

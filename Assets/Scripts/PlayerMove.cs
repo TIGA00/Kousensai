@@ -77,11 +77,13 @@ public class PlayerMove : MonoBehaviour {
 					isBoostF = false;
 				}
 			}
-			if (inSta.B == true) {
+			//if (inSta.B== true) {
+			if (Input.GetKey(KeyCode.W)== true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {
+			//} else if (inSta.X) {
+			} else if (Input.GetKey(KeyCode.S)){
 				moveDir = new Vector3 (0, 0, -1);
-			} else if (inSta.X == false && inSta.B == false) {
+			} else if (inSta.B == false && inSta.X == false) {
 				moveDir = new Vector3 (0, 0, 0);
 			}
 
