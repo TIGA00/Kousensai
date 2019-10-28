@@ -27,8 +27,7 @@ public class PlayerMotion : MonoBehaviour {
         } else {
             ani.SetInteger("Vertical", 0);
         }
-		//if (inSta.A==true)
-        if (Input.GetKey(KeyCode.K))
+		if (inSta.A==true)
         {
             GameObject newBomb = Instantiate(bomb,gun.transform.position, Camera.transform.rotation);
             newBomb.GetComponent<BombScript1>().SetVelocity(transform.forward);

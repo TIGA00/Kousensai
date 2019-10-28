@@ -36,13 +36,11 @@ public class PlayerMove1 : MonoBehaviour {
 			}
 		}
 		if (chCon.isGrounded||isGround) {
-			//if (inSta.B == true) {
-			if (Input.GetKey(KeyCode.W) == true) {
+			if (inSta.B == true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {	
+			} else if (inSta.X) {
 				moveDir = new Vector3 (0, 0, -1);
 			} else if (inSta.X == false && inSta.B == false) {
-			//} else if (KeyCode.W == false && KeyCode.S == false) {
 				moveDir = new Vector3 (0, 0, 0);
 			}
 			moveDir = transform.TransformDirection (moveDir);
