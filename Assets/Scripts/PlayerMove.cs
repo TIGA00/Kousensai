@@ -77,29 +77,32 @@ public class PlayerMove : MonoBehaviour {
 					isBoostF = false;
 				}
 			}
-			if (inSta.B == true) {
+			//if (inSta.B == true) {
+			if (Input.GetKey(KeyCode.W) == true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {
+			//} else if (inSta.X) {
+			} else if (Input.GetKey(KeyCode.S)) {	
 				moveDir = new Vector3 (0, 0, -1);
 			} else if (inSta.X == false && inSta.B == false) {
 				moveDir = new Vector3 (0, 0, 0);
 			}
 
-			/*if(Input.GetKeyDown("KeyCode.UpArrow") == true){
+			if(Input.GetKeyDown(KeyCode.Y) == true){
 				moveDir = new Vector3(0,0,1);
-			}else if(Input.GetKeyDown("KeyCode.DownArrow") == true){
+			}else if(Input.GetKeyDown(KeyCode.H) == true){
 				moveDir = new Vector3(0,0,-1);
 			}
-			if(Input.GetKeyDown("KeyCode.A") == true){
+			if(Input.GetKeyDown(KeyCode.A) == true){
 				transform.Rotate(0,-1*rotSpeed,0);
-			}else if(Input.GetKeyDown("KeyCode.D") == true){
+			}else if(Input.GetKeyDown(KeyCode.D) == true){
 				transform.Rotate(0,1*rotSpeed,0);
-			}*/
+			}
 
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;
 			transform.Rotate (0, GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).x * rotSpeed, 0);
 			Vector3 angles = mainCam.eulerAngles;
+			/*
 			if(angles.x > 180 && angles.x < 340 && GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).y > 0)
 			{
 				angles = new Vector3(340, angles.y, angles.z);
@@ -111,7 +114,7 @@ public class PlayerMove : MonoBehaviour {
 			else
 			{
 				mainCam.eulerAngles = new Vector3(angles.x + GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).y * rotSpeed * -1, angles.y, angles.z);
-			}
+			}*/
 
 			//Debug.Log ("true");
 		} else {
