@@ -20,9 +20,11 @@ public class PlayerMotion : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
-		if (inSta.B == true) {
+		//if (inSta.B == true) {
+        if (Input.GetKey(KeyCode.W) == true) {
             ani.SetInteger("Vertical", 1);
-		} else if ( inSta.X == true) {
+		//if (inSta.X == true) {
+        } else if ( Input.GetKey(KeyCode.S) == true) {    
             ani.SetInteger("Vertical", -1);
         } else {
             ani.SetInteger("Vertical", 0);
