@@ -2,28 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
-public class PlayerMove : MonoBehaviour {
-	public float speed = 15f;
-	public float jumpSpeed = 8f;
-	public float gra = 20f;
-	private Vector3 moveDir = Vector3.zero;
-	public float rotSpeed = 10f;
-	// Use this for initialization
-	private AnimatorStateInfo animInfo;
-	private Animator anim;
-	public Transform rayPos;
-	public float rayRan = 0.85f;
-	public bool isGround;
+public class PlayerMove : MonoBehaviour
+{
+    public float speed = 15f;
+    public float jumpSpeed = 8f;
+    public float gra = 20f;
+    private Vector3 moveDir = Vector3.zero;
+    public float rotSpeed = 10f;
+    // Use this for initialization
+    private AnimatorStateInfo animInfo;
+    private Animator anim;
+    public Transform rayPos;
+    public float rayRan = 0.85f;
+    public bool isGround;
     private Transform mainCam;
     //for boost
     public float boostSpeed = 1.0f;
-   // Rigidbody rigidBody;
+    // Rigidbody rigidBody;
     public float touchDelay = 0.5f;
     public bool isBoostF = false;
     public bool isMashF = false;
-	private float boostSec = BOOST_SEC;
-	public static float BOOST_SEC = 1.0f;
-	void Start () {
+    private float boostSec = BOOST_SEC;
+    public static float BOOST_SEC = 1.0f;
+
+
+    public static float BOOST_MAX_CAPACITY = 2.0f;
+    public float boostCapacity = BOOST_MAX_CAPACITY;
+    public static float ACCELERATE_TIME = 0.5f;
+    public float accelerateTime = 0;
+    public static float BOOST_COOL_TIME = 1.0f;
+    public float boostCoolTime = BOOST_COOL_TIME;
+    public bool isBoostCool = false;
+    public bool isBoost = false;
+
+
+
+
+    void Start () {
         mainCam = transform.Find("Main Camera1");
         
 	}
@@ -43,7 +58,55 @@ public class PlayerMove : MonoBehaviour {
 		}
 
 		if (chCon.isGrounded||isGround) {
-            if (isMashF == false && isBoostF == false)
+            isBoost = false;
+            if(isBoostCool == false) //ブーストがクールタイムに入っているかどうか
+            {
+                if (Input.GetKey(KeyCode.Space)) //ブーストの入力をチェック
+                {
+                    if (boostCapacity >= 0) //ブーストの容量が残っているかどうか
+                    {
+                        isBoost = true;
+                        if (accelerateTime < ACCELERATE_TIME) //加速時間ないかどうか
+                        {
+                            boostCapacity -= Time.deltaTime;
+                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                            accelerateTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                        }
+                        boostCapacity -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        isBoostCool = true; //ブーストオーバーヒート
+                    }
+                }
+            } 
+            if(isBoostCool || isBoost == false) {
+                if (isBoostCool) {
+                    if (boostCoolTime >= 0)
+                    { //クールタイム内かどうか
+                        boostCoolTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        boostCoolTime = BOOST_COOL_TIME;
+                        isBoostCool = false;
+                    }
+                }
+                if(boostCapacity <= BOOST_MAX_CAPACITY) {
+                    boostCapacity += Time.deltaTime * 3;
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                accelerateTime = 0;
+            }
+
+            /*if (isMashF == false && isBoostF == false)
             {
 			
                 if(GamePad.GetButtonUp(GamePad.Button.B, GamePad.Index.One)){
@@ -76,9 +139,9 @@ public class PlayerMove : MonoBehaviour {
 					boostSec = BOOST_SEC;
 					isBoostF = false;
 				}
-			}
-			//if (inSta.B == true) {
-			if (Input.GetKey(KeyCode.W) == true) {
+			}*/
+            //if (inSta.B == true) {
+            if (Input.GetKey(KeyCode.W) == true) {
 				moveDir = new Vector3 (0, 0, 1);
 			//} else if (inSta.X) {
 			} else if (Input.GetKey(KeyCode.S)) {	
