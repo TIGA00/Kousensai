@@ -139,15 +139,10 @@ public class PlayerMove : MonoBehaviour
 					boostSec = BOOST_SEC;
 					isBoostF = false;
 				}
-<<<<<<< HEAD
-			}
-			//if (inSta.B== true) {
-			if (Input.GetKey(KeyCode.W)== true) {
-=======
+
 			}*/
             //if (inSta.B == true) {
             if (Input.GetKey(KeyCode.W) == true) {
->>>>>>> origin/Boost
 				moveDir = new Vector3 (0, 0, 1);
 			//} else if (inSta.X) {
 			} else if (Input.GetKey(KeyCode.S)){
