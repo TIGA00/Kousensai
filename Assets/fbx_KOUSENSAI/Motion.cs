@@ -32,16 +32,7 @@ public class Motion : MonoBehaviour {
         } else {
             ani.SetInteger("Vertical", 0);
         }
-        if ( Input.GetKey(KeyCode.D) == true) {    
-            
-            ani.SetInteger("Horizontal", 1);
-        }
-        else if ( Input.GetKey(KeyCode.A) == true) {    
-            
-            ani.SetInteger("Horizontal", -1);
-        } else {
-            ani.SetInteger("Horizontal", 0);
-        }
+    
 		/*if (inSta.A==true)
         {
             GameObject newBomb = Instantiate(bomb,gun.transform.position, Camera.transform.rotation);
