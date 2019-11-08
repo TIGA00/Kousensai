@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
  
-public class Shooting : MonoBehaviour {
+public class Shooting3 : MonoBehaviour {
  
     // bullet prefab
     //追尾しないやつ
     public GameObject bullet0;
+    //1P追尾用
+    public GameObject bullet1;
     //2P追尾用
     public GameObject bullet2;
-    //3P追尾用
-    public GameObject bullet3;
     //4P追尾用
     public GameObject bullet4;
  
@@ -26,7 +26,6 @@ public class Shooting : MonoBehaviour {
     //連射設定
     private float timeBetweenShot = 0.35f;
     private float timer;
-
  
 	// Use this for initialization
 	void Start () {
@@ -39,11 +38,24 @@ public class Shooting : MonoBehaviour {
         // タイマーの時間を動かす
         timer += Time.deltaTime;
 
-        // z キーが押された時
-        if (Input.GetKeyDown(KeyCode.Z) && timer > timeBetweenShot){
+        // V キーが押された時
+        if (Input.GetKeyDown(KeyCode.V) && timer > timeBetweenShot){
             timer = 0.0f;
 
-            if(Aim1.lockOn1 == 2){
+            if(Aim3.lockOn3 == 1){
+                // 弾丸の複製
+                GameObject bullets = Instantiate(bullet1,gun.transform.position, Camera.transform.rotation);
+    
+                Vector3 force;
+    
+                force = this.gameObject.transform.forward * speed;
+    
+                // Rigidbodyに力を加えて発射
+                bullet1.GetComponent<Rigidbody>().AddForce(force);
+    
+                // 弾丸の位置を調整
+                //bullets.transform.position = muzzle.position;
+            }else if(Aim3.lockOn3 == 2){
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet2,gun.transform.position, Camera.transform.rotation);
     
@@ -56,20 +68,7 @@ public class Shooting : MonoBehaviour {
     
                 // 弾丸の位置を調整
                 //bullets.transform.position = muzzle.position;
-            }else if(Aim1.lockOn1 == 3){
-                // 弾丸の複製
-                GameObject bullets = Instantiate(bullet3,gun.transform.position, Camera.transform.rotation);
-    
-                Vector3 force;
-    
-                force = this.gameObject.transform.forward * speed;
-    
-                // Rigidbodyに力を加えて発射
-                bullet3.GetComponent<Rigidbody>().AddForce(force);
-    
-                // 弾丸の位置を調整
-                //bullets.transform.position = muzzle.position;
-            }else if(Aim1.lockOn1 == 4){
+            }else if(Aim3.lockOn3 == 4){
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet4,gun.transform.position, Camera.transform.rotation);
     

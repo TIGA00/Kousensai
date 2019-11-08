@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
  
-//何も追尾しない用
+//4P追尾専用
 
-public class HomingLaser : MonoBehaviour {
+public class HomingLaser00 : MonoBehaviour {
  
     //Rigidbodyを入れる変数
     Rigidbody rigid;
@@ -15,7 +15,7 @@ public class HomingLaser : MonoBehaviour {
     // 加速度
     public Vector3 acceleration;
     // 着弾時間
-    float period = 2f;
+    float period = 1.5f;
 
     
     void Start () {
@@ -36,7 +36,7 @@ public class HomingLaser : MonoBehaviour {
 
         Transform target;
 
-            // ターゲットをセットする（存在しないターゲットをセット）
+            // ターゲットをセットする
             target = GameObject.FindGameObjectWithTag("Player").transform;
 
             acceleration = Vector3.zero;
@@ -61,6 +61,7 @@ public class HomingLaser : MonoBehaviour {
             // 速度の計算
             velocity += acceleration * Time.deltaTime;
 
+        
 
     }
  

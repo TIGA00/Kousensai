@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
  
-public class Shooting : MonoBehaviour {
+public class Shooting02 : MonoBehaviour {
  
     // bullet prefab
     //追尾しないやつ
     public GameObject bullet0;
-    //2P追尾用
-    public GameObject bullet2;
+    //1P追尾用
+    public GameObject bullet1;
     //3P追尾用
     public GameObject bullet3;
     //4P追尾用
@@ -26,7 +26,6 @@ public class Shooting : MonoBehaviour {
     //連射設定
     private float timeBetweenShot = 0.35f;
     private float timer;
-
  
 	// Use this for initialization
 	void Start () {
@@ -39,24 +38,24 @@ public class Shooting : MonoBehaviour {
         // タイマーの時間を動かす
         timer += Time.deltaTime;
 
-        // z キーが押された時
-        if (Input.GetKeyDown(KeyCode.Z) && timer > timeBetweenShot){
+        // c キーが押された時
+        if (Input.GetKeyDown(KeyCode.C) && timer > timeBetweenShot){
             timer = 0.0f;
 
-            if(Aim1.lockOn1 == 2){
+            if(Aim2.lockOn2 == 1){
                 // 弾丸の複製
-                GameObject bullets = Instantiate(bullet2,gun.transform.position, Camera.transform.rotation);
+                GameObject bullets = Instantiate(bullet1,gun.transform.position, Camera.transform.rotation);
     
                 Vector3 force;
     
                 force = this.gameObject.transform.forward * speed;
     
                 // Rigidbodyに力を加えて発射
-                bullet2.GetComponent<Rigidbody>().AddForce(force);
+                bullet1.GetComponent<Rigidbody>().AddForce(force);
     
                 // 弾丸の位置を調整
                 //bullets.transform.position = muzzle.position;
-            }else if(Aim1.lockOn1 == 3){
+            }else if(Aim2.lockOn2 == 3){
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet3,gun.transform.position, Camera.transform.rotation);
     
@@ -69,7 +68,7 @@ public class Shooting : MonoBehaviour {
     
                 // 弾丸の位置を調整
                 //bullets.transform.position = muzzle.position;
-            }else if(Aim1.lockOn1 == 4){
+            }else if(Aim2.lockOn2 == 4){
                 // 弾丸の複製
                 GameObject bullets = Instantiate(bullet4,gun.transform.position, Camera.transform.rotation);
     
