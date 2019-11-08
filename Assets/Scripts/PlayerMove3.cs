@@ -77,7 +77,8 @@ public class PlayerMove3 : MonoBehaviour {
 					isBoostF = false;
 				}
 			}
-			if (inSta.B == true) {
+			//inSta.B == true
+			if (Input.GetButtonDown("Button")) {
 				moveDir = new Vector3 (0, 0, 1);
 			} else if (inSta.X) {
 				moveDir = new Vector3 (0, 0, -1);

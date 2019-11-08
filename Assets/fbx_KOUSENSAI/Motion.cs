@@ -22,11 +22,11 @@ public class Motion : MonoBehaviour {
 	void Update () {
 		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
 		//if (inSta.B == true) {
-        if (Input.GetKey(KeyCode.W) == true) {
+        if (inSta.Y == true) {
             ani.SetInteger("Vertical", -1);
             
 		//if (inSta.X == true) {
-        } else if ( Input.GetKey(KeyCode.S) == true) {    
+        } else if ( inSta.X == true) {    
             
             ani.SetInteger("Vertical", 1);
         } else {

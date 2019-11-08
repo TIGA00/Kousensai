@@ -77,16 +77,17 @@ public class PlayerMove2 : MonoBehaviour {
 					isBoostF = false;
 				}
 			}
-			if (inSta.B == true) {
+			if (inSta.X == true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {
+			} else if (inSta.Y) {
 				moveDir = new Vector3 (0, 0, -1);
-			} else if (inSta.X == false && inSta.B == false) {
+			} else if (inSta.X == false && inSta.Y == false) {
 				moveDir = new Vector3 (0, 0, 0);
 			}
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;			
-            transform.Rotate(0, GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.Two).x * rotSpeed, 0);
+            //transform.Rotate(0, GamePad.GetAxis(GamePad.Axis.LeftStick, GamePad.Index.Two).x * rotSpeed, 0);
+			transform.Rotate (0, Input.GetAxis("Horizontal_2") * rotSpeed, 0);
 			Vector3 angles = mainCam.eulerAngles;
             if (angles.x > 180 && angles.x < 340 && GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.Two).y > 0)
 			{
