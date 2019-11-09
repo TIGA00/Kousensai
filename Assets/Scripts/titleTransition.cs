@@ -15,14 +15,14 @@ public class titleTransition : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GamepadState inSta1 = GamepadInput.GamePad.GetState(GamePad.Index.One);
-		GamepadState inSta2 = GamepadInput.GamePad.GetState(GamePad.Index.Two);
-		GamepadState inSta3 = GamepadInput.GamePad.GetState(GamePad.Index.Three);
-		GamepadState inSta4 = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+		//GamepadState inSta1 = GamepadInput.GamePad.GetState(GamePad.Index.One);
+		//GamepadState inSta2 = GamepadInput.GamePad.GetState(GamePad.Index.Two);
+		//GamepadState inSta3 = GamepadInput.GamePad.GetState(GamePad.Index.Three);
+		//GamepadState inSta4 = GamepadInput.GamePad.GetState(GamePad.Index.Four);
         if (!audioSources[0].isPlaying) {
             audioSources[0].Play();
         }
-        if (inSta1.A == true || inSta1.B == true || inSta1.X == true) {
+        if (Input.GetKeyUp(KeyCode.Space)) {
             audioSources[0].Stop();
 			Application.LoadLevel ("SampleScene");
 		}
