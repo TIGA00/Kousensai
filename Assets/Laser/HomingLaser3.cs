@@ -25,7 +25,7 @@ public class HomingLaser3 : MonoBehaviour {
         // rigidbody取得
         rigid = this.GetComponent<Rigidbody>();
         // 初速をランダムで与える
-        velocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
+        velocity = new Vector3(0,0, 0);
 
         
  

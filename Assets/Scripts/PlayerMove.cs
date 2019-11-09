@@ -182,17 +182,17 @@ public class PlayerMove : MonoBehaviour
 			//transform.Rotate (0, GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).x * rotSpeed, 0);
             transform.Rotate (0, Input.GetAxis("Horizontal_1") * rotSpeed, 0);
 			Vector3 angles = mainCam.eulerAngles;
-			if(angles.x > 180 && angles.x < 340 && GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).y > 0)
+			if(angles.x > 180 && angles.x < 340 && Input.GetAxis("Vertical_1") > 0)
 			{
 				angles = new Vector3(340, angles.y, angles.z);
 			}
-			else if(angles.x <= 180 && angles.x > 20 && GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).y <= 0)
+			else if(angles.x <= 180 && angles.x > 20 && Input.GetAxis("Vertical_1") <= 0)
 			{
 				angles = new Vector3(20, angles.y, angles.z);
 			}
 			else
 			{
-				mainCam.eulerAngles = new Vector3(angles.x + GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.One).y * rotSpeed * -1, angles.y, angles.z);
+				mainCam.eulerAngles = new Vector3(angles.x + Input.GetAxis("Vertical_1") * rotSpeed * -1, angles.y, angles.z);
 			}
 
 			//Debug.Log ("true");

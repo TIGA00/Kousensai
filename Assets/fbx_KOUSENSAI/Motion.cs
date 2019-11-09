@@ -5,13 +5,15 @@ using GamepadInput;
 
 public class Motion : MonoBehaviour {
     
-
+    public float TIME = 0.2f;
+    public float count;
+    private float intime = 0;
 	private Animator ani;
-    /*public Transform gun;
+    public Transform gun;
     public GameObject bomb;
     public Transform Camera;
-    private AudioSource[] audioSources;
-*/
+//    private AudioSource[] audioSources;
+
 	// Use this for initialization
 	void Start () {
         //audioSources = gameObject.GetComponents<AudioSource>();
@@ -32,12 +34,16 @@ public class Motion : MonoBehaviour {
         } else {
             ani.SetInteger("Vertical", 0);
         }
-    
-		/*if (inSta.A==true)
+
+		if (Input.GetButton("Button1"))
         {
-            GameObject newBomb = Instantiate(bomb,gun.transform.position, Camera.transform.rotation);
-            newBomb.GetComponent<BombScript1>().SetVelocity(transform.forward);
-            audioSources[0].Play();
-        }*/
+            if(intime>TIME){
+                GameObject newBomb = Instantiate(bomb,gun.transform.position, Camera.transform.rotation);
+                newBomb.GetComponent<BombScript1>().SetVelocity(transform.forward);
+                intime = 0;
+            }
+          //  audioSources[0].Play();
+        }
+        intime += Time.deltaTime;
 	}
 }

@@ -39,7 +39,7 @@ public class Shooting3 : MonoBehaviour {
         timer += Time.deltaTime;
 
         // V キーが押された時
-        if (Input.GetKeyDown(KeyCode.V) && timer > timeBetweenShot){
+        if (Input.GetButton("Button3") && timer > timeBetweenShot){
             timer = 0.0f;
 
             if(Aim3.lockOn3 == 1){

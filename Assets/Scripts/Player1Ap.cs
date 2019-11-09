@@ -7,26 +7,26 @@ using UnityEngine.SceneManagement;
 public class Player1Ap : MonoBehaviour {
     
     GameObject player1;
-    [SerializeField] GameObject OtherCamera1;
+    //[SerializeField] GameObject OtherCamera1;
     Slider HP_Slider1;
-	public int armerPoint1 = 100;
+	public int armerPoint1 = 1000;
 	public int damage1 = 10;
-    private AudioSource[] audioSources;
+    //private AudioSource[] audioSources;
 
     // Use this for initialization
     void Start () {
-        audioSources = gameObject.GetComponents<AudioSource>();
-        player1 = GameObject.FindWithTag("bunkasai_player");
+       // audioSources = gameObject.GetComponents<AudioSource>();
+        player1 = GameObject.FindWithTag("P1");
         HP_Slider1 = GameObject.FindWithTag("HitPoint1").GetComponent<Slider>();
-        armerPoint1 = 100;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (RankingSystemScript.Ranking == 1){
+        /*if (RankingSystemScript.Ranking == 1){
             OtherCamera1.SetActive(true);
-        }
+        }*/
 
 	}
 
@@ -36,12 +36,12 @@ public class Player1Ap : MonoBehaviour {
 			armerPoint1 -= damage1;
             HP_Slider1.value = armerPoint1;
 		}
-		if(armerPoint1<=0){
+		/*if(armerPoint1<=0){
             audioSources[1].Play();
             OtherCamera1.SetActive(true);
             Destroy(player1);
 
-		}
+		}*/
 
 	}
 }

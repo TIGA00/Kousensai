@@ -40,7 +40,7 @@ public class Shooting : MonoBehaviour {
         timer += Time.deltaTime;
 
         // z キーが押された時
-        if (Input.GetKeyDown(KeyCode.Z) && timer > timeBetweenShot){
+        if (Input.GetButton("Button1") && timer > timeBetweenShot){
             timer = 0.0f;
 
             if(Aim1.lockOn1 == 2){

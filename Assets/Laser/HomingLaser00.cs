@@ -17,7 +17,7 @@ public class HomingLaser00 : MonoBehaviour {
     // 着弾時間
     float period = 1.5f;
 
-    
+  
     void Start () {
  
         // 初期位置をposionに格納
@@ -25,7 +25,8 @@ public class HomingLaser00 : MonoBehaviour {
         // rigidbody取得
         rigid = this.GetComponent<Rigidbody>();
         // 初速をランダムで与える
-        velocity = new Vector3(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), 0);
+        velocity = new Vector3(0,0, 0);
+        
 
         
  
