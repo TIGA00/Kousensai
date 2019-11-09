@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     public static float BOOST_SEC = 1.0f;
 
 
-    public static float BOOST_MAX_CAPACITY = 2.0f;
+    public static float BOOST_MAX_CAPACITY = 200.0f;
     public float boostCapacity = BOOST_MAX_CAPACITY;
     public static float ACCELERATE_TIME = 0.5f;
     public float accelerateTime = 0;
@@ -63,23 +63,30 @@ public class PlayerMove : MonoBehaviour
             {
                 if (inSta.B == true) //ブーストの入力をチェック
                 {
+                    Debug.Log("ブースと");
                     if (boostCapacity >= 0) //ブーストの容量が残っているかどうか
                     {
+                        Debug.Log("ブースと2");
                         isBoost = true;
                         if (accelerateTime < ACCELERATE_TIME) //加速時間ないかどうか
                         {
-                            boostCapacity -= Time.deltaTime;
-                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                            Debug.Log("ブースと3");
+                            boostCapacity -= 100*Time.deltaTime;
+                            chCon.Move(transform.forward * boostSpeed * accelerateTime * Time.deltaTime);
                             accelerateTime += Time.deltaTime;
                         }
                         else
                         {
-                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                            Debug.Log("ブースと4");
+                            //Debug.Log(transform.forward);
+                            //Debug.Log(mainCam.transform.forward * boostSpeed * accelerateTime * 10 * Time.deltaTime);
+                            chCon.Move(transform.forward * boostSpeed * accelerateTime * 10 * Time.deltaTime);
                         }
-                        boostCapacity -= Time.deltaTime;
+                        boostCapacity -= 100*Time.deltaTime;
                     }
                     else
                     {
+                        Debug.Log("オーバーヒート");
                         isBoostCool = true; //ブーストオーバーヒート
                     }
                 }
@@ -97,7 +104,7 @@ public class PlayerMove : MonoBehaviour
                     }
                 }
                 if(boostCapacity <= BOOST_MAX_CAPACITY) {
-                    boostCapacity += Time.deltaTime * 3;
+                    boostCapacity += 100* Time.deltaTime * 3;
                 }
             }
 

@@ -3572,7 +3572,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.7
+      value: 13.23
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
@@ -6058,11 +6058,11 @@ MonoBehaviour:
   rayPos: {fileID: 1062901846}
   rayRan: 0.85
   isGround: 0
-  boostSpeed: 1
+  boostSpeed: 10
   touchDelay: 0.5
   isBoostF: 0
   isMashF: 0
-  boostCapacity: 2
+  boostCapacity: 200
   accelerateTime: 0
   boostCoolTime: 1
   isBoostCool: 0
@@ -9465,11 +9465,11 @@ MonoBehaviour:
   rayPos: {fileID: 1613632395}
   rayRan: 0.85
   isGround: 0
-  boostSpeed: 1
+  boostSpeed: 10
   touchDelay: 0.5
   isBoostF: 0
   isMashF: 0
-  boostCapacity: 2
+  boostCapacity: 200
   accelerateTime: 0
   boostCoolTime: 1
   isBoostCool: 0
@@ -9867,7 +9867,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.34
+      value: 26.59
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
@@ -11277,11 +11277,11 @@ MonoBehaviour:
   rayPos: {fileID: 1943262930}
   rayRan: 0.85
   isGround: 0
-  boostSpeed: 1
+  boostSpeed: 10
   touchDelay: 0.5
   isBoostF: 0
   isMashF: 0
-  boostCapacity: 2
+  boostCapacity: 200
   accelerateTime: 0
   boostCoolTime: 1
   isBoostCool: 0
@@ -11376,7 +11376,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 18.65
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
@@ -11649,12 +11649,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12
+      value: 19.02
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6c302ecef19d2604997e88a47e9df5a0,
         type: 3}
@@ -12711,11 +12711,11 @@ MonoBehaviour:
   rayPos: {fileID: 2144466743}
   rayRan: 0.85
   isGround: 0
-  boostSpeed: 1
+  boostSpeed: 10
   touchDelay: 0.5
   isBoostF: 0
   isMashF: 0
-  boostCapacity: 2
+  boostCapacity: 200
   accelerateTime: 0
   boostCoolTime: 1
   isBoostCool: 0
