@@ -23,6 +23,16 @@ public class PlayerMove4: MonoBehaviour {
     public bool isMashF = false;
 	private float boostSec = BOOST_SEC;
 	public static float BOOST_SEC = 1.0f;
+
+
+	public static float BOOST_MAX_CAPACITY = 2.0f;
+    public float boostCapacity = BOOST_MAX_CAPACITY;
+    public static float ACCELERATE_TIME = 0.5f;
+    public float accelerateTime = 0;
+    public static float BOOST_COOL_TIME = 1.0f;
+    public float boostCoolTime = BOOST_COOL_TIME;
+    public bool isBoostCool = false;
+    public bool isBoost = false;
 	void Start () {
         mainCam = transform.Find("Main Camera4");
         
@@ -31,7 +41,7 @@ public class PlayerMove4: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {
@@ -43,45 +53,61 @@ public class PlayerMove4: MonoBehaviour {
 		}
 
 		if (chCon.isGrounded||isGround) {
-            if (isMashF == false && isBoostF == false)
+            //---->ブースト処理
+            isBoost = false;
+            if(isBoostCool == false) //ブーストがクールタイムに入っているかどうか
             {
-			
-                if(GamePad.GetButtonUp(GamePad.Button.B, GamePad.Index.Four)){
-                    isMashF = true;
-                }
-            }else {
-				if(touchDelay >= 0) {
-					if (GamePad.GetButtonDown(GamePad.Button.B, GamePad.Index.Four) ){
-                        //rigidBody.AddForce(Vector3.forward * boostSpeed, ForceMode.VelocityChange);
-						//rigidBody.velocity += (Vector3.forward * boostSpeed) * Time.fixedDeltaTime;
-						//rigidBody.velocity += transform.forward * boostSpeed;
-						//chCon.Move(transform.forward * boostSpeed);
-						isBoostF = true;
-						//chCon.velocity += transform.forward * boostSpeed;
-						Debug.Log("boost");
-						isMashF = false;
-						touchDelay = 0.5f;
+                if (inSta.B == true) //ブーストの入力をチェック
+                {
+                    if (boostCapacity >= 0) //ブーストの容量が残っているかどうか
+                    {
+                        isBoost = true;
+                        if (accelerateTime < ACCELERATE_TIME) //加速時間ないかどうか
+                        {
+                            boostCapacity -= Time.deltaTime;
+                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                            accelerateTime += Time.deltaTime;
+                        }
+                        else
+                        {
+                            chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(accelerateTime) * Time.deltaTime);
+                        }
+                        boostCapacity -= Time.deltaTime;
                     }
-				} else {
-					isMashF = false;
-					touchDelay = 0.5f;
-				}
-                touchDelay -= Time.deltaTime;
+                    else
+                    {
+                        isBoostCool = true; //ブーストオーバーヒート
+                    }
+                }
+            } 
+            if(isBoostCool || isBoost == false) {
+                if (isBoostCool) {
+                    if (boostCoolTime >= 0)
+                    { //クールタイム内かどうか
+                        boostCoolTime -= Time.deltaTime;
+                    }
+                    else
+                    {
+                        boostCoolTime = BOOST_COOL_TIME;
+                        isBoostCool = false;
+                    }
+                }
+                if(boostCapacity <= BOOST_MAX_CAPACITY) {
+                    boostCapacity += Time.deltaTime * 3;
+                }
             }
-			if(isBoostF) {
-				if(boostSec >= 0) {
-					chCon.Move(transform.forward * boostSpeed * Mathf.Sqrt(boostSec)*Time.deltaTime);
-					boostSec -= Time.deltaTime;
-				}else {
-					boostSec = BOOST_SEC;
-					isBoostF = false;
-				}
-			}
-			if (inSta.B == true) {
+
+            if (inSta.B == false)
+            {
+                accelerateTime = 0;
+            }
+			//ブースト処理<-------
+
+			if (inSta.X == true) {
 				moveDir = new Vector3 (0, 0, 1);
-			} else if (inSta.X) {
+			} else if (inSta.Y) {
 				moveDir = new Vector3 (0, 0, -1);
-			} else if (inSta.X == false && inSta.B == false) {
+			} else if (inSta.X == false && inSta.Y == false) {
 				moveDir = new Vector3 (0, 0, 0);
 			}
 			moveDir = transform.TransformDirection (moveDir);

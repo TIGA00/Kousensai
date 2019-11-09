@@ -46,7 +46,7 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
+		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {
@@ -61,7 +61,7 @@ public class PlayerMove : MonoBehaviour
             isBoost = false;
             if(isBoostCool == false) //ブーストがクールタイムに入っているかどうか
             {
-                if (Input.GetKey(KeyCode.Space)) //ブーストの入力をチェック
+                if (inSta.B == true) //ブーストの入力をチェック
                 {
                     if (boostCapacity >= 0) //ブーストの容量が残っているかどうか
                     {
@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (inSta.B == false)
             {
                 accelerateTime = 0;
             }
