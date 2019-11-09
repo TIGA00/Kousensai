@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
+using UnityEngine.UI;
 public class PlayerMove2 : MonoBehaviour {
 	public float speed = 15f;
 	public float jumpSpeed = 8f;
@@ -33,9 +34,12 @@ public class PlayerMove2 : MonoBehaviour {
     public float boostCoolTime = BOOST_COOL_TIME;
     public bool isBoostCool = false;
     public bool isBoost = false;
+
+	Slider Boost_Slider2;
+
 	void Start () {
         mainCam = transform.Find("Main Camera2");
-        
+        Boost_Slider2 = GameObject.FindWithTag("boost_p2").GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -68,6 +72,7 @@ public class PlayerMove2 : MonoBehaviour {
                         {
                             Debug.Log("ブースと3");
                             boostCapacity -= 100*Time.deltaTime;
+							Boost_Slider2.value = boostCapacity;
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * Time.deltaTime);
                             accelerateTime += Time.deltaTime;
                         }
@@ -79,6 +84,7 @@ public class PlayerMove2 : MonoBehaviour {
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * 10 * Time.deltaTime);
                         }
                         boostCapacity -= 100*Time.deltaTime;
+						Boost_Slider2.value = boostCapacity;
                     }
                     else
                     {
@@ -101,6 +107,7 @@ public class PlayerMove2 : MonoBehaviour {
                 }
                 if(boostCapacity <= BOOST_MAX_CAPACITY) {
                     boostCapacity += 100* Time.deltaTime * 3;
+					Boost_Slider2.value = boostCapacity;
                 }
             }
 
@@ -108,7 +115,7 @@ public class PlayerMove2 : MonoBehaviour {
             {
                 accelerateTime = 0;
             }
-			//ブースト処理<-------
+			//---->ブースト処理
 
 			if (inSta.X == true) {
 				moveDir = new Vector3 (0, 0, 1);

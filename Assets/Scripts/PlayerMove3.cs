@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
+using UnityEngine.UI;
 public class PlayerMove3 : MonoBehaviour {
 	public float speed = 15f;
 	public float jumpSpeed = 8f;
@@ -33,9 +34,12 @@ public class PlayerMove3 : MonoBehaviour {
     public float boostCoolTime = BOOST_COOL_TIME;
     public bool isBoostCool = false;
     public bool isBoost = false;
+
+	Slider Boost_Slider3;
+
 	void Start () {
         mainCam = transform.Find("Main Camera3");
-        
+        Boost_Slider3 = GameObject.FindWithTag("boost_p3").GetComponent<Slider>();
 	}
 	
 	// Update is called once per frame
@@ -69,6 +73,7 @@ public class PlayerMove3 : MonoBehaviour {
                         {
                             Debug.Log("ブースと3");
                             boostCapacity -= 100*Time.deltaTime;
+							Boost_Slider3.value = boostCapacity;
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * Time.deltaTime);
                             accelerateTime += Time.deltaTime;
                         }
@@ -80,6 +85,7 @@ public class PlayerMove3 : MonoBehaviour {
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * 10 * Time.deltaTime);
                         }
                         boostCapacity -= 100*Time.deltaTime;
+						Boost_Slider3.value = boostCapacity;
                     }
                     else
                     {
@@ -102,6 +108,7 @@ public class PlayerMove3 : MonoBehaviour {
                 }
                 if(boostCapacity <= BOOST_MAX_CAPACITY) {
                     boostCapacity += 100* Time.deltaTime * 3;
+					Boost_Slider3.value = boostCapacity;
                 }
             }
 

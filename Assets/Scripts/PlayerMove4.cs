@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GamepadInput;
+using UnityEngine.UI;
 public class PlayerMove4: MonoBehaviour {
 	public float speed = 15f;
 	public float jumpSpeed = 8f;
@@ -33,11 +34,14 @@ public class PlayerMove4: MonoBehaviour {
     public float boostCoolTime = BOOST_COOL_TIME;
     public bool isBoostCool = false;
     public bool isBoost = false;
+
+	Slider Boost_Slider4;
+
 	void Start () {
         mainCam = transform.Find("Main Camera4");
-        
+        Boost_Slider4 = GameObject.FindWithTag("boost_p4").GetComponent<Slider>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
@@ -68,6 +72,7 @@ public class PlayerMove4: MonoBehaviour {
                         {
                             Debug.Log("ブースと3");
                             boostCapacity -= 100*Time.deltaTime;
+							Boost_Slider4.value = boostCapacity;
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * Time.deltaTime);
                             accelerateTime += Time.deltaTime;
                         }
@@ -79,6 +84,7 @@ public class PlayerMove4: MonoBehaviour {
                             chCon.Move(transform.forward * boostSpeed * accelerateTime * 10 * Time.deltaTime);
                         }
                         boostCapacity -= 100*Time.deltaTime;
+						Boost_Slider4.value = boostCapacity;
                     }
                     else
                     {
@@ -101,6 +107,7 @@ public class PlayerMove4: MonoBehaviour {
                 }
                 if(boostCapacity <= BOOST_MAX_CAPACITY) {
                     boostCapacity += 100* Time.deltaTime * 3;
+					Boost_Slider4.value = boostCapacity;
                 }
             }
 

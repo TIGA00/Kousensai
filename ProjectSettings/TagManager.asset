@@ -18,6 +18,14 @@ TagManager:
   - HitPoint3
   - HitPoint4
   - MainCamera1
+  - boost_p1
+  - P1
+  - boost_p2
+  - boost_p3
+  - boost_p4
+  - P2
+  - P3
+  - P4
   layers:
   - Default
   - TransparentFX
