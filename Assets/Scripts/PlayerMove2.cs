@@ -28,7 +28,7 @@ public class PlayerMove2 : MonoBehaviour {
 
 	public static float BOOST_MAX_CAPACITY = 200.0f;
     public float boostCapacity = BOOST_MAX_CAPACITY;
-    public static float ACCELERATE_TIME = 0.5f;
+    public static float ACCELERATE_TIME = 0.15f;
     public float accelerateTime = 0;
     public static float BOOST_COOL_TIME = 1.0f;
     public float boostCoolTime = BOOST_COOL_TIME;
@@ -45,7 +45,7 @@ public class PlayerMove2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Three);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {

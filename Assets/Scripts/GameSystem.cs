@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSystem : MonoBehaviour {
-    public static int ready = 3; //準備完了した人数
-    public static bool isGameStarted = true;
+    public static int ready = 0; //準備完了した人数
+    public static bool isGameStarted = false; //テスト時true, 本番時false
     private AudioSource[] audioSources; //複数の音楽ファイルを追加した時に対応できるように配列
 
 	// Use this for initialization

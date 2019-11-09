@@ -21,7 +21,7 @@ public class Motion3 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
 		//if (inSta.B == true) {
         if (inSta.Y == true) {
             ani.SetInteger("Vertical", -1);

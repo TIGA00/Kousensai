@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
 
     public static float BOOST_MAX_CAPACITY = 200.0f;
     public float boostCapacity = BOOST_MAX_CAPACITY;
-    public static float ACCELERATE_TIME = 0.5f;
+    public static float ACCELERATE_TIME = 0.15f;
     public float accelerateTime = 0;
     public static float BOOST_COOL_TIME = 1.0f;
     public float boostCoolTime = BOOST_COOL_TIME;
@@ -49,7 +49,7 @@ public class PlayerMove : MonoBehaviour
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
+		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Three);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {
@@ -158,6 +158,7 @@ public class PlayerMove : MonoBehaviour
 			}*/
             if (inSta.X == true) {
             //if (Input.GetKey(KeyCode.W) == true) {
+                
 				moveDir = new Vector3 (0, 0, 1);
 			} else if (inSta.Y) {
 			//} else if (Input.GetKey(KeyCode.S)){

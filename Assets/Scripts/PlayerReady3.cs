@@ -4,15 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using GamepadInput;
 
-public class PlayerReady : MonoBehaviour {
+public class PlayerReady3 : MonoBehaviour {
     Image readyImage;
     Image OKImage;
     bool isWaited = false;
 
     // Use this for initialization
     void Start () {
-        GetComponent<Motion>().enabled = false;
-        GetComponent<PlayerMove>().enabled = false;
+        GetComponent<Motion3>().enabled = false;
+        GetComponent<PlayerMove3>().enabled = false;
         readyImage = GameObject.Find("AreYouReady").GetComponent<Image>();
         OKImage = GameObject.Find("OK").GetComponent<Image>();
         OKImage.enabled = false;
@@ -22,7 +22,7 @@ public class PlayerReady : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Three);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
         if (isWaited == false){
 			if (inSta.X||inSta.Y||inSta.A||inSta.B) {
                 GameReady();
@@ -44,8 +44,8 @@ public class PlayerReady : MonoBehaviour {
 
     void GameStart()
     {
-        GetComponent<Motion>().enabled = true;
-        GetComponent<PlayerMove>().enabled = true;
+        GetComponent<Motion3>().enabled = true;
+        GetComponent<PlayerMove3>().enabled = true;
         OKImage.enabled = false;
         readyImage.enabled = false;
     }
