@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 7
+    joyNum: 16
   - serializedVersion: 3
     m_Name: L_XAxis_2
     descriptiveName: 
@@ -84,7 +84,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 6
+    joyNum: 16
   - serializedVersion: 3
     m_Name: Horizontal_2
     descriptiveName: 
@@ -132,7 +132,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 5
+    joyNum: 16
   - serializedVersion: 3
     m_Name: Horizontal_3
     descriptiveName: 
@@ -180,7 +180,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 1
-    joyNum: 8
+    joyNum: 16
   - serializedVersion: 3
     m_Name: Horizontal_4
     descriptiveName: 
