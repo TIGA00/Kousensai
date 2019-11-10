@@ -128,7 +128,7 @@ public class PlayerMove4: MonoBehaviour {
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;
 			//transform.Rotate (0, GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.Four).x * rotSpeed, 0);
-			transform.Rotate (0, Input.GetAxis("Horizontal_3") * 0.2f * rotSpeed, 0);
+			transform.Rotate (0, Input.GetAxis("Horizontal_3") * 0.5f * rotSpeed, 0);
 			Vector3 angles = mainCam.eulerAngles;
 			if(angles.x > 180 && angles.x < 340 && Input.GetAxis("Vertical_4") > 0)
 			{
