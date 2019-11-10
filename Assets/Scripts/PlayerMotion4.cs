@@ -17,9 +17,9 @@ public class PlayerMotion4 : MonoBehaviour {
         ani = GetComponent<Animator>();
 	}
 	
-	// Update is called once per frame
+	// Update is called once per framessss
 	void Update () {
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
 		if (inSta.B == true) {
             ani.SetInteger("Vertical", 1);
 		} else if ( inSta.X == true) {

@@ -19,7 +19,7 @@ public class PlayerMotion3 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Three);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
 		if (inSta.B == true) {
             ani.SetInteger("Vertical", 1);
 		} else if ( inSta.X == true) {

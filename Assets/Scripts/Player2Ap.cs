@@ -60,8 +60,7 @@ public class Player2Ap : MonoBehaviour {
 
 		if(armerPoint2<=0){
             this.transform.position = spawnPosition;
-           HP_Slider2.value = armerPoint2 = MAX_ARMOR_POINT; 
-                
+            HP_Slider2.value = armerPoint2 = MAX_ARMOR_POINT; 
 		}
 	}
 }

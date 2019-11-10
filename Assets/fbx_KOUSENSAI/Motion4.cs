@@ -21,7 +21,7 @@ public class Motion4 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+		GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
 		//if (inSta.B == true) {
         if (inSta.Y == true) {
             ani.SetInteger("Vertical", -1);
@@ -34,7 +34,7 @@ public class Motion4 : MonoBehaviour {
             ani.SetInteger("Vertical", 0);
         }
     
-		if (Input.GetButton("Button4"))
+		if (Input.GetButton("Button3"))
         {
             if(intime>TIME){
                 GameObject newBomb = Instantiate(bomb,gun.transform.position, Camera.transform.rotation);

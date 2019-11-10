@@ -30,6 +30,10 @@ TagManager:
   - Point3
   - Point2
   - Point1
+  - GameTime1
+  - GameTime2
+  - GameTime3
+  - GameTime4
   layers:
   - Default
   - TransparentFX

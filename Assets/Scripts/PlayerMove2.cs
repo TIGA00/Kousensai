@@ -45,7 +45,7 @@ public class PlayerMove2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.One);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {

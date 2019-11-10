@@ -45,7 +45,7 @@ public class PlayerMove4: MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		CharacterController chCon = GetComponent<CharacterController> ();
-        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Four);
+        GamepadState inSta = GamepadInput.GamePad.GetState(GamePad.Index.Two);
 		Rigidbody rigidBody = GetComponent<Rigidbody>();
 		//Debug.Log ("worldPosition"+transform.TransformDirection(moveDir));
 		if (!chCon.isGrounded) {
@@ -127,7 +127,7 @@ public class PlayerMove4: MonoBehaviour {
 			moveDir = transform.TransformDirection (moveDir);
 			moveDir *= speed;
 			//transform.Rotate (0, GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.Four).x * rotSpeed, 0);
-			transform.Rotate (0, Input.GetAxis("Horizontal_4") * rotSpeed, 0);
+			transform.Rotate (0, Input.GetAxis("Horizontal_3") * rotSpeed, 0);
 			Vector3 angles = mainCam.eulerAngles;
 			if(angles.x > 180 && angles.x < 340 && GamePad.GetAxis(GamePad.Axis.LeftStick,GamePad.Index.Four).y > 0)
 			{
