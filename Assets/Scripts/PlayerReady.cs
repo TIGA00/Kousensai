@@ -13,10 +13,10 @@ public class PlayerReady : MonoBehaviour {
     void Start () {
         GetComponent<Motion>().enabled = false;
         GetComponent<PlayerMove>().enabled = false;
-        readyImage = GameObject.Find("AreYouReady").GetComponent<Image>();
-        OKImage = GameObject.Find("OK").GetComponent<Image>();
-        OKImage.enabled = false;
-        readyImage.enabled = true;
+        //readyImage = GameObject.Find("AreYouReady").GetComponent<Image>();
+        //OKImage = GameObject.Find("OK").GetComponent<Image>();
+        //OKImage.enabled = false;
+        //readyImage.enabled = true;
     }
 	
 	// Update is called once per frame
@@ -37,8 +37,8 @@ public class PlayerReady : MonoBehaviour {
     void GameReady()
     {
         isWaited = true;
-        OKImage.enabled = true;
-        readyImage.enabled = false;
+        //OKImage.enabled = true;
+        //readyImage.enabled = false;
         GameSystem.ready ++;
     }
 
@@ -46,7 +46,7 @@ public class PlayerReady : MonoBehaviour {
     {
         GetComponent<Motion>().enabled = true;
         GetComponent<PlayerMove>().enabled = true;
-        OKImage.enabled = false;
-        readyImage.enabled = false;
+        //OKImage.enabled = false;
+        //readyImage.enabled = false;
     }
 }

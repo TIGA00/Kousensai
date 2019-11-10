@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameSystem : MonoBehaviour {
     public static int ready = 0; //準備完了した人数
     public static bool isGameStarted = false; //テスト時true, 本番時false
-    public static float game_time = 3f;
+    public static float game_time = 180f;
     private AudioSource[] audioSources; //複数の音楽ファイルを追加した時に対応できるように配列
     Text timeText1;
     Text timeText2;
@@ -117,5 +117,9 @@ public class GameSystem : MonoBehaviour {
             rank3.text = "#"+ran2[2].ToString();
             rank4.text = "#"+ran2[3].ToString();
         }
+        if (Input.GetKeyUp(KeyCode.Space)) {
+            audioSources[0].Stop();
+			Application.LoadLevel ("title");
+		}
     }
 }

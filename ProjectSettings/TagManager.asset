@@ -34,6 +34,18 @@ TagManager:
   - GameTime2
   - GameTime3
   - GameTime4
+  - ResultBackground1
+  - ResultBackground2
+  - ResultBackground3
+  - ResultBackground4
+  - Takenaka1
+  - Takenaka2
+  - Takenaka3
+  - Takenaka4
+  - Rank1
+  - Rank2
+  - Rank3
+  - Rank4
   layers:
   - Default
   - TransparentFX
